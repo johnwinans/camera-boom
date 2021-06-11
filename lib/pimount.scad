@@ -84,13 +84,12 @@ module pi3_pos(standoffHeight=piDefaultStandoffHeight, reference=true)
 ******************************************************************/
 module pi_camera_v1_neg(
 	standoffHeight=piDefaultStandoffHeight, 
-	mountHoleDepth=4.5, 
+	mountHoleDepth=9, 
 	threadin=true)
 {
 	boltd=threadin ? bolt_dim_M2_tap : bolt_dim_M2_dia;
 	for (pos = v1_hole_centers)
 		translate(pos) translate([0,0,standoffHeight-mountHoleDepth]) cylinder(d=boltd, h=mountHoleDepth+.01, $fn=20);
-	//translate([0,0,standoffHeight/2]) cube([25,19,piDefaultStandoffHeight], center=true);
 }
 
 /**
@@ -100,14 +99,14 @@ module pi_camera_v1_pos(
 {
 	for (pos = v1_hole_centers)
 		translate(pos) 
-			cylinder(d=4, h=standoffHeight, $fn=30);
+			cylinder(d=3.5, h=standoffHeight, $fn=30);
 }
 
 /**
 ******************************************************************/
 module pi_camera_hq_neg(
 	standoffHeight=piDefaultStandoffHeight, 
-	mountHoleDepth=4.5, 
+	mountHoleDepth=9, 
 	threadin=true)
 {
 	boltd=threadin ? bolt_dim_M25_tap : bolt_dim_M25_dia;
@@ -122,7 +121,7 @@ module pi_camera_hq_pos(
 {
 	for (pos = hq_hole_centers)
 		translate(pos) 
-			translate([0,0,standoffHeight/2]) cube([5.5,5.5,standoffHeight], center=true);
+			translate([0,0,standoffHeight/2]) cylinder(d=5.5, h=standoffHeight, center=true, $fn=30);
 }
 
 
@@ -155,7 +154,7 @@ module pi3_neg(standoffHeight=piDefaultStandoffHeight, mountHoleDepth=4.5, threa
     translate([85, 29, 1.4+16.5/2]) cube([20, 16, 16.5], center=true);
     translate([85, 47, 1.4+16.5/2]) cube([20, 16, 16.5], center=true);
 
-//15x6 on center
+	//15x6 on center
     // an access slot for the SD card
     translate([0, 28,-1]) cube([30, 15, 6], center=true);
 }
