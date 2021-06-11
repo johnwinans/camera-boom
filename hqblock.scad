@@ -105,8 +105,8 @@ module hqblock()
 				{
 					union()
 					{
-						translate([0,0,cam_depth/2]) cube([35.5,35.5,cam_depth], center=true);
-						translate([38/2,0,cam_depth/2]) cube([2.51,cz+.01,cam_depth], center=true);
+						translate([0,0,cam_depth/2]) cube([35,36.5,cam_depth], center=true);
+						translate([38/2,0,cam_depth/2]) cube([3.51,cz+.01,cam_depth], center=true);
 					}
 					pi_camera_hq_pos();
 				}
