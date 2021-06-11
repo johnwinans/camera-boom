@@ -33,6 +33,20 @@ I used slic3r to render the gcode files with these parameters:
 I printed using a TAZ5 with 3mm Black ESUN (cheap) filament and pried the parts
 off the bed using a razor blade.
 
+## Assembly Instructions
+
+Use 1/4" [carriage bolts](https://en.wikipedia.org/wiki/Carriage_bolt) 
+with a wingnut and washer to clamp blocks to 3/4" conduit pipes cut to whatever 
+length is suitable for your application. 
+2" carriage bolts bolts should suffice for the default design files.
+
+If you expect to support more than 15 pounds (7 Kg) or so, you might want to
+increase the thickness of your crossblocks (the joints hanging your boom
+and balancing the counterweight carry the vast majority of the load.) 
+To do this, change the `block_inset` value in the `crossblock.scad` file
+to a larger number... like 20 or 30.  (Note: I put a crossblock30.stl file
+into the stl directory in case you don't have OpenSCAD installed. 
+Probably need to use 2 1/2" carriage bolts for this larger block.)
 
 ## Collet
 ![collet.scad](img/collet.png)
