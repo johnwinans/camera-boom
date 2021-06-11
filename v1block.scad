@@ -49,7 +49,7 @@ cbnd=bolt_dim_quarter_carriage_neck_depth;
 cbc=1;							// gap between the clamp bolt & pipe
 rs=cbd+block_c_bolt_inset+cbc;	// relief slot width
 
-cam_offset=8;					// how far to stick out the 'back'
+cam_offset=7;					// how far to stick out the 'back'
 
 cy = pipe_diameter+rs*2+cam_offset;
 
@@ -83,7 +83,7 @@ module v1block()
 	cpy=cam_offset;
 	cpz=cz;
 
-	cam_depth=5;
+	cam_depth=4;
 	
     
     difference()
@@ -106,7 +106,7 @@ module v1block()
 					union()
 					{
 						translate([5,0,cam_depth/2]) cube([35,19,cam_depth], center=true);
-						translate([24-5,0,cam_depth/2]) cube([24,cz+.01,cam_depth], center=true);
+						translate([24-7.5,0,cam_depth/2]) cube([24,cz+.01,cam_depth], center=true);
 					}
 					pi_camera_v1_pos();
 				}
