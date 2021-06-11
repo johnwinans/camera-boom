@@ -18,7 +18,7 @@
 */
 
 bolt_dim_M2_dia = 3;		// for M2 bolt loose fit
-bolt_dim_M2_tap = 2.4;		// for self-tapping a M2 bolt
+bolt_dim_M2_tap = 2.3;		// for self-tapping a M2 bolt
 bolt_dim_M2_head_dia = 4.6;// diameter for a crown countersink
 
 bolt_dim_M25_dia = 3.5;		// for M2.5 bolt loose fit
