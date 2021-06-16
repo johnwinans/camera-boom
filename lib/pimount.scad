@@ -20,11 +20,7 @@
 
 include <boltDim.scad>
 
-
 //pi3_example();
-
-piX=85;
-piY=56;
 
 piDefaultStandoffHeight=5;
 
