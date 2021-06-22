@@ -31,6 +31,8 @@ module clamp_neg(
     clamp_bolt_dia,
     clamp_bolt_neck_depth,
     clamp_bolt_clearance,
+	clamp_bolt_countersink_depth=0,
+	clamp_bolt_countersink_dia=0,
     rib=false, 
     stripe=true
     )
@@ -72,7 +74,9 @@ module clamp_neg(
         cylinder(d=clamp_bolt_dia, h=clamp_bolt_length+.01, $fn=20, center=true);
     
         // square for carriage bolt head
-        translate([clamp_bolt_length/2-clamp_bolt_neck_depth/2,0,0])
+        translate([clamp_bolt_length/2-clamp_bolt_neck_depth/2-clamp_bolt_countersink_depth,0,0])
             cube([clamp_bolt_neck_depth+.01, clamp_bolt_dia,clamp_bolt_dia], center=true);
+		translate([clamp_bolt_length/2-clamp_bolt_countersink_depth+.001,0,0])
+			rotate([0,90,0]) cylinder(d=clamp_bolt_countersink_dia, h=clamp_bolt_countersink_depth, $fn=30);
     }
 }
