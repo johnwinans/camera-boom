@@ -9,6 +9,7 @@ with mounting blocks for a Raspberry PI and cameras.
 * [piblock.scad](piblock.scad) - PI B Mounting Block
 * [v1block.scad](v1block.scad) - PI Camera V1 Mounting Block
 * [hqblock.scad](hqblock.scad) - PI HQ Camera Mounting Block
+* [mountblock.scad](mountblock.scad) - Mount a swinging boom to hoprizontal surface with a 1/4" lag screw
 
 ## How To Build STL Files 
 
