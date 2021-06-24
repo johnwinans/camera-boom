@@ -4,7 +4,8 @@ SRC=\
 	crossblock.scad \
 	piblock.scad \
 	hqblock.scad \
-	v1block.scad
+	v1block.scad \
+	mountblock.scad
 
 
 STL=$(SRC:.scad=.stl)
