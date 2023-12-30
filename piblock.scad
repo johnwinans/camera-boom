@@ -97,20 +97,22 @@ module pibaseNeg(thick, standoff=2)
 **********************************************************************************/
 module pi_block()
 {
+    pi_standoff=3;              // how far to place the PI away from the base
     piPlateX=piDimY+2;
     piPlateY=cam_offset;
-    piPlateZ=piDimX;           // do NOT expand (for clean printer bed)
+    piPlateZ=piDimX;            // do NOT expand (for clean printer bed)
+    piPlateZOffset=3;           // how far to stick out on SD-card end
     
     difference()
     {
         union()
         {
             translate([0,-cam_offset/2,0]) cube([cx,cy,cz], center=true);
-            translate([0,-cy/2-cam_offset/2,piDimX/2-cz/2]) pibasePos(11);
-            translate([0,-cy/2-cam_offset/2+cam_offset/2,piDimX/2-cz/2]) cube([piPlateX,piPlateY,piPlateZ], center=true);
+            translate([0,-cy/2-cam_offset/2,piDimX/2-cz/2]) pibasePos(11, pi_standoff);
+            translate([0,-cy/2-cam_offset/2+cam_offset/2,piDimX/2-cz/2+piPlateZOffset/2]) cube([piPlateX,piPlateY,piPlateZ+piPlateZOffset], center=true);
         }
         cn();
-        translate([0,-cy/2-cam_offset/2,piDimX/2-cz/2]) pibaseNeg(11);
+        translate([0,-cy/2-cam_offset/2,piDimX/2-cz/2]) pibaseNeg(11, pi_standoff);
 
         strain_offset=block_inset/2;
         strain_thickness=3;
