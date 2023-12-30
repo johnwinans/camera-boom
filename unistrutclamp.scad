@@ -86,6 +86,6 @@ echo(cy);
     {
 		cube([cx,cy,cz], center=true);
         translate([0,pipe_offset,0]) cn();
-		translate([0,-cx/2,0]) cylinder(d=12.54, h=cz+1, center=true);
+		translate([0,-cx/2,0]) cylinder(d=14, h=cz+1, center=true);
     }
 }
