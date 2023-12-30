@@ -28,7 +28,7 @@ pipe_diameter=24;       // 3/4" conduit
 block_c_bolt_pipe_clearance=1;
 block_c_bolt_inset=5;       // from clamp-bolt to the end of the block
 
-block_inset=17;
+block_inset=15;
 
 
 
@@ -50,8 +50,10 @@ rs=cbd+block_c_bolt_inset+cbc;       // relief slot width
 cy = pipe_diameter+rs*2;
 
 
+//setscrew=true;
+setscrew=false;
 
-collet();
+collet(setscrew);
 
 
 /**
@@ -73,11 +75,14 @@ module cn()
 /**
 * A collet
 **********************************************************************************/
-module collet()
+module collet(setscrew=false)
 {
     difference()
     {
 		cube([cx,cy,cz], center=true);
         cn();
+        if (setscrew) {
+            rotate([0,90,0]) cylinder(d=6, h=cx+2, center=true, $fn=20);
+        }
     }
 }
