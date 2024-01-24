@@ -27,16 +27,16 @@ pipe_diameter=24;       // 3/4" conduit
 block_c_bolt_pipe_clearance=1;
 block_c_bolt_inset=5;	// from clamp-bolt to the end of the block
 
-block_inset=17;			// space from pipe-edge to the block-edge 
+block_inset=13;			// space from pipe-edge to the block-edge 
 
 pipe_gap=3;				// distance between pipes
 
-
+radius=2;               // cube minkowski radius
 
 
 // calculate the dimensions of the block using the above config variables
 
-cx = pipe_diameter+block_inset;   
+cx = pipe_diameter+block_inset;
 
 cbd=bolt_dim_quarter_dia;       // clamp bolt diameter
 //cz=cbd+block_c_bolt_inset*2;    // this is as thin as I'd want to go
@@ -64,12 +64,23 @@ module cn()
         clamp_bolt_length=cbl,
         clamp_bolt_dia=cbd,
         clamp_bolt_neck_depth=cbnd,
+        clamp_bolt_countersink_depth=4,
+        clamp_bolt_countersink_dia=15.5,
         relief_slot=rs,
         pipe_length=cz,
         pipe_diameter=pipe_diameter,
-        clamp_bolt_clearance=cbc);
+        clamp_bolt_clearance=cbc
+    );
 }
 
+module roundcube(dim, ,r=0, center=false)
+{
+    minkowski()
+    {
+        sphere(r=r, $fn=40);
+        cube(dim, center);
+    }
+}
 
 /**
 * A crossblock.
@@ -80,7 +91,8 @@ module crossblock()
 
     difference()
     {
-		cube([cx,cy,cz], center=true);
+		//cube([cx,cy,cz], center=true);
+		roundcube([cx-radius*2,cy-radius*2,cz-radius*2], r=radius, center=true);
         translate([0,pipe_offset,0]) cn();
 		translate([0,-pipe_offset,0]) rotate([0,90,0]) rotate([0,0,180]) cn();
     }
